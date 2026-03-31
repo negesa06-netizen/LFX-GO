@@ -3,66 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TradingView Charts</title>
-    <style>
-        body {
-            background-color: #121212;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-        }
-        .chart-container {
-            margin: 20px 0;
-        }
-    </style>
+    <title>Founders Section</title>
 </head>
 <body>
-    <h1>TradingView Charts for XAU/USD and Forex Markets</h1>
-    <div class="chart-container">
-        <div class="tradingview-widget-container">
-            <div id="tradingview_eabc3"></div>
-            <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-            <script type="text/javascript">
-                new TradingView.widget({
-                    "width": 980,
-                    "height": 610,
-                    "symbol": "OANDA:XAUUSD",
-                    "interval": "D",
-                    "timezone": "Etc/UTC",
-                    "theme": "dark",
-                    "style": "1",
-                    "locale": "en",
-                    "toolbar_bg": "#f1f3f6",
-                    "enable_publishing": false,
-                    "allow_symbol_change": true,
-                    "container_id": "tradingview_eabc3",
-                    "hideideas": true,
-                });
-            </script>
-        </div>
+    <h1>Founders</h1>
+    <div class="founder">
+        <img src="path_to_avatar_lewis.jpg" alt="Lewis Mwirigi's Avatar">
+        <h2>Lewis Mwirigi</h2>
+        <p>Role: Co-founder</p>
+        <p>Contact: lewis@example.com</p>
+        <button onclick="editAvatar('path_to_avatar_lewis.jpg')">Edit Avatar</button>
     </div>
-    <div class="chart-container">
-        <div class="tradingview-widget-container">
-            <div id="tradingview_df826"></div>
-            <script type="text/javascript">
-                new TradingView.widget({
-                    "width": 980,
-                    "height": 610,
-                    "symbol": "OANDA:EURUSD",
-                    "interval": "D",
-                    "timezone": "Etc/UTC",
-                    "theme": "dark",
-                    "style": "1",
-                    "locale": "en",
-                    "toolbar_bg": "#f1f3f6",
-                    "enable_publishing": false,
-                    "allow_symbol_change": true,
-                    "container_id": "tradingview_df826",
-                    "hideideas": true,
-                });
-            </script>
-        </div>
+    <div class="founder">
+        <img src="path_to_avatar_newton.jpg" alt="Newton Egesa's Avatar">
+        <h2>Newton Egesa</h2>
+        <p>Role: Co-founder</p>
+        <p>Contact: newton@example.com</p>
+        <button onclick="editAvatar('path_to_avatar_newton.jpg')">Edit Avatar</button>
     </div>
+
+    <script>
+        function editAvatar(imagePath) {
+            // Logic to edit avatar
+            const newImagePath = prompt("Enter new avatar URL:", imagePath);
+            if (newImagePath) {
+                // Update the image source
+                const image = document.querySelector(`img[src='${imagePath}']`);
+                image.src = newImagePath;
+            }
+        }
+    </script>
 </body>
 </html>
