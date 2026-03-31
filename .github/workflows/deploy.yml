@@ -1,4 +1,6 @@
-name: Deploy to GitHub Pages
+# This workflow deploys the application
+
+name: Deploy
 
 on:
   push:
@@ -8,13 +10,12 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@v4.1.2
-      with:
-        branch: gh-pages     # The branch the action should deploy to.
-        folder: build        # The folder the action should deploy. Adjust this if your static files are in another folder.
+      - name: Deploy
+        run: |
+          echo "Deploying from root folder..."
+
+          # Add your deployment logic here
