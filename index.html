@@ -3,33 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Founders Section</title>
+    <title>Account Management</title>
 </head>
 <body>
-    <h1>Founders</h1>
-    <div class="founder">
-        <img src="path_to_avatar_lewis.jpg" alt="Lewis Mwirigi's Avatar">
-        <h2>Lewis Mwirigi</h2>
-        <p>Role: Co-founder</p>
-        <p>Contact: lewis@example.com</p>
-        <button onclick="editAvatar('path_to_avatar_lewis.jpg')">Edit Avatar</button>
+    <h1>Account Management</h1>
+    <div>
+        <h2>Account Balance: $<span id="balance">0</span></h2>
+        <h3>Transaction History</h3>
+        <ul id="transactionHistory"></ul>
+        <h2>Deposit</h2>
+        <p>Deposit Fee: $8 USD</p>
+        <input type="number" id="depositAmount" placeholder="Enter deposit amount">
+        <button onclick="deposit()">Deposit</button>
+        <h2>Withdrawal</h2>
+        <p>Withdrawal Limit: $10 USD</p>
+        <input type="number" id="withdrawalAmount" placeholder="Enter withdrawal amount">
+        <button onclick="withdraw()">Withdraw</button>
     </div>
-    <div class="founder">
-        <img src="path_to_avatar_newton.jpg" alt="Newton Egesa's Avatar">
-        <h2>Newton Egesa</h2>
-        <p>Role: Co-founder</p>
-        <p>Contact: newton@example.com</p>
-        <button onclick="editAvatar('path_to_avatar_newton.jpg')">Edit Avatar</button>
-    </div>
-
     <script>
-        function editAvatar(imagePath) {
-            // Logic to edit avatar
-            const newImagePath = prompt("Enter new avatar URL:", imagePath);
-            if (newImagePath) {
-                // Update the image source
-                const image = document.querySelector(`img[src='${imagePath}']`);
-                image.src = newImagePath;
+        let totalBalance = 0;
+        const balanceElement = document.getElementById('balance');
+        const transactionHistoryElement = document.getElementById('transactionHistory');
+
+        function updateBalance() {
+            balanceElement.innerText = totalBalance;
+        }
+
+        function deposit() {
+            const depositAmount = parseFloat(document.getElementById('depositAmount').value);
+            if (depositAmount > 0) {
+                totalBalance += depositAmount - 8; // Subtracting the deposit fee
+                transactionHistoryElement.innerHTML += `<li>Deposited: $${depositAmount} (Fee: $8)</li>`;
+                updateBalance();
+            } else {
+                alert('Please enter a valid deposit amount.');
+            }
+        }
+
+        function withdraw() {
+            const withdrawalAmount = parseFloat(document.getElementById('withdrawalAmount').value);
+            if (withdrawalAmount > 0 && withdrawalAmount <= 10) {
+                totalBalance -= withdrawalAmount;
+                transactionHistoryElement.innerHTML += `<li>Withdrew: $${withdrawalAmount}</li>`;
+                updateBalance();
+            } else {
+                alert('Withdrawal amount must be $10 or less.');
             }
         }
     </script>
