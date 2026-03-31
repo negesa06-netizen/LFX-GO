@@ -3,20 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LFX GO Trading Platform</title>
+    <title>TradingView Charts</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .chart-container {
+            margin: 20px 0;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to LFX GO Trading Platform</h1>
-    </header>
-    <main>
-        <section>
-            <h2>About Us</h2>
-            <p>Your platform for trading and investing.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2026 LFX GO. All rights reserved.</p>
-    </footer>
+    <h1>TradingView Charts for XAU/USD and Forex Markets</h1>
+    <div class="chart-container">
+        <div class="tradingview-widget-container">
+            <div id="tradingview_eabc3"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+            <script type="text/javascript">
+                new TradingView.widget({
+                    "width": 980,
+                    "height": 610,
+                    "symbol": "OANDA:XAUUSD",
+                    "interval": "D",
+                    "timezone": "Etc/UTC",
+                    "theme": "dark",
+                    "style": "1",
+                    "locale": "en",
+                    "toolbar_bg": "#f1f3f6",
+                    "enable_publishing": false,
+                    "allow_symbol_change": true,
+                    "container_id": "tradingview_eabc3",
+                    "hideideas": true,
+                });
+            </script>
+        </div>
+    </div>
+    <div class="chart-container">
+        <div class="tradingview-widget-container">
+            <div id="tradingview_df826"></div>
+            <script type="text/javascript">
+                new TradingView.widget({
+                    "width": 980,
+                    "height": 610,
+                    "symbol": "OANDA:EURUSD",
+                    "interval": "D",
+                    "timezone": "Etc/UTC",
+                    "theme": "dark",
+                    "style": "1",
+                    "locale": "en",
+                    "toolbar_bg": "#f1f3f6",
+                    "enable_publishing": false,
+                    "allow_symbol_change": true,
+                    "container_id": "tradingview_df826",
+                    "hideideas": true,
+                });
+            </script>
+        </div>
+    </div>
 </body>
 </html>
